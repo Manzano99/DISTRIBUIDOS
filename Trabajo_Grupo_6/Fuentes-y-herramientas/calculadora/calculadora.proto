@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+service CalculadoraService {
+    rpc Sumar (OperacionRequest) returns (OperacionReply);
+    rpc Restar (OperacionRequest) returns (OperacionReply);
+    rpc Multiplicar (OperacionRequest) returns (OperacionReply);
+    rpc Dividir (OperacionRequest) returns (OperacionReply);
+    rpc Historial (HistorialRequest) returns (stream HistorialReply);
+    rpc LimpiarHistorial (HistorialRequest) returns (LimpiarReply);
+}
+
+message OperacionRequest {
+    double numero1 = 1;
+    double numero2 = 2;
+}
+
+message OperacionReply {
+    double resultado = 1;
+    string mensaje = 2;
+}
+
+message HistorialRequest {}
+
+message HistorialReply {
+  string descripcion = 1;
+}
+
+message LimpiarReply {
+  string mensaje = 1;
+}

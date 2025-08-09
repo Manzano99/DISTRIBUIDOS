@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+service SaludoService {
+  rpc Saludar (SaludoRequest) returns (SaludoReply);
+}
+
+message SaludoRequest {
+  string nombre = 1;
+}
+
+message SaludoReply {
+  string mensaje = 1;
+}
