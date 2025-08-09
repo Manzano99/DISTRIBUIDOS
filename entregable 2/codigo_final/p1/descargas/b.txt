@@ -1,0 +1,2 @@
+Línea 1 del archivo b
+Otra línea de b

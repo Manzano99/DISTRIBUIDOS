@@ -1,0 +1,5 @@
+a.txt T
+b.txt U
+noexiste.txt T
+grande.txt T
+vacio.txt U

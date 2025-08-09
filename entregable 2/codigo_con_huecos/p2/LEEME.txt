@@ -1,0 +1,15 @@
+Pon en esta carpeta el código de protocolo.c, protocolo.h, servidor.c y 
+cliente-con-servidor.c, junto con el Makefile que compila todo.
+
+Anota en `servidor.c` las líneas que hayas añadido, precediéndolas de un
+comentario que diga "AÑADIDO" seguido de tu nombre y apellidos. 
+El código de protocolo.c y protocolo.h no es necesario modificarlo, 
+pero si lo haces, anota también las líneas que hayas añadido.
+
+En el código del cliente-con-servidor.c, puesto que no partes de un
+código base, no puedes marcar las líneas modificadas, pero señala
+claramente con un comentario "AÑADIDO" seguido de tu nombre y apellidos
+las partes que tratan del nuevo comando BROADCAST.
+
+Puedes añadir en este LEEME.txt cualquier comentario que consideres
+relevante.

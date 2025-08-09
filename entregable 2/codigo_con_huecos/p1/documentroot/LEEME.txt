@@ -1,0 +1,7 @@
+Esta carpeta contendrá los ficheros que los clientes pueden solicitar.
+
+Recuerda que cuando se arranca el servidor debe recibir como parámetro
+la ruta *absoluta* a esta carpeta.
+
+No es necesario que incluyas ficheros en esta carpeta, es sólo para tus
+pruebas. Durante la corrección se utilizará un documentroot diferente.
