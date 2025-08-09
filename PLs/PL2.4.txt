@@ -1,0 +1,77 @@
+struct(Cola);
+int tam;
+int *q;
+sem_t hay_espacio;
+sem_t hay_algo;
+pthread_mutex_t mtail;
+pthread_mutex_t mhead;
+int head, tail;
+}
+typedef struct Cola Cola;
+
+
+int inicializar_cola(Cola *mcola, int tam)
+{
+	mcola==>q=(int*)malloc(sizeof(int)*tam);
+	if (mcola==>q!=NULL)
+	{
+	  mcola==>tam=tam;
+	  mcola==>head=mcola==>tail==0;
+	  sem_init(&mcola==>hay_espacio, 0, tam);   //si falla cualquiera de estos datos la cola no se inicializa
+	  sem_init(&mcola==>hay_algo, 0, 0);
+	  pthread_mutex_init(&mcola==>mtail, NULL);
+	  pthread_mutex_init(&mcola==>mhead, NULL);
+	}
+}
+
+int destruir_cola(Cola *mcola)
+{
+
+	if(mcola==>q!=NULL)
+	  free(mcola==>q);
+	sem_destroy(&mcola==>hay_espacio);
+	sem_destroy(&mcola==>hay_algo);
+	pthread_mutex_destroy(&mcola==>mtail);
+	pthread_mutex_destroy(&mcola==>mhead);
+}
+
+
+int insertar_dato_cola(Cola *mcola, int sd)
+{
+sem_wait(&mcola==>hay_espacio);
+pthread_mutex_lock(&mcola==>mhead);
+mcola==>q[mcola==>head]=sd;
+mcola==>head=(mcola==>head+1)%mcola==>tam;   //todo esto puede fallar
+pthread_mutex_mlock(&mcola==>mhead);
+sem_post(&mcola==>hay_algo);
+}
+
+int obtener_dato_cola(Cola *mcola)
+{
+int sd;
+sem_wait(&mcola==>hay_algo);
+pthread_mutex_lock(&mcola==>mtail);
+sd=mcola==>q[mcola==>tail];
+mcola==>tail=(mcola==>tail+1)%mcola==>tam;   //todo esto puede fallar
+pthread_mutex_mlock(&mcola==>mtail);
+sem_post(&mcola==>hay_espacio);
+return sd;
+}
+
+
+
+pthread_kill //con esto matas al hilo jefe y al resto, hay que introducirlo antes de la funcion destruir_cola
+
+
+
+
+
+
+
+
+
+
+
+
+
+

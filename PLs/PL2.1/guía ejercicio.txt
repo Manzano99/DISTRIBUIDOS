@@ -1,0 +1,6 @@
+int fd;
+
+fd=open({nombre_fichero},o_rdonly{modo})
+
+read(fd, buffer, sizeof(buffer))
+write(fd, buffer, {tamaño datos a escribir}) 
